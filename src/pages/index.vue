@@ -12,7 +12,7 @@
                     @touchstart.prevent="onEdit"
                     @mousedown="onEdit"></canvas>
             <svg viewBox="0, 0, 280, 280">
-              <rect x="40" y="40" width="200" height="200" stroke="pink" stroke-width="1" stroke-dasharray="4 4" fill="none" />
+              <rect x="40" y="40" width="200" height="200" stroke="orange" stroke-width="1" stroke-dasharray="4 4" fill="none" />
             </svg>
           </div>
         </v-flex>
@@ -112,8 +112,8 @@ export default {
     },
 
     predict() {
-      const imgTensol = tf.browser.fromPixels(this.$refs['canvas'], 1).reshape([1, 28, 28, 1]).cast('float32').div(tf.scalar(255));
-      const predict = this.model.predict(imgTensol).dataSync();
+      const imgTensolObj = tf.browser.fromPixels(this.$refs['canvas'], 1).reshape([1, 28, 28, 1]).cast('float32').div(tf.scalar(255));
+      const predict = this.model.predict(imgTensolObj).dataSync();
       this.result = Array.prototype.slice.call(predict).map((v => v.toFixed(10)));
     }
   },

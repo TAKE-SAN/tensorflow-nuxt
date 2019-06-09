@@ -50,7 +50,7 @@
 import * as tf from '@tensorflow/tfjs';
 
 export default {
-  async mounted(){
+  async mounted() {
     this.resetCanvas();
     this.model = await tf.loadLayersModel('https://raw.githubusercontent.com/TAKE-SAN/tensorflow-nuxt/master/models/model.json');
   },
@@ -119,7 +119,7 @@ export default {
   },
 
   computed:{
-    maxNum(){
+    maxNum() {
       return this.result
         .map((v, i) => [v, i])
         .sort(([a], [b]) => a < b ? 1 : -1)

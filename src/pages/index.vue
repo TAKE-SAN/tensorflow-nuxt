@@ -66,11 +66,11 @@ export default {
   },
 
   methods:{
-    canvasMouseMove(event) {
+    canvasMouseMove(e) {
       if(!this.edit){ return }
-      let clientRect = event.target.getBoundingClientRect();
-      let x =  ((event.clientX || event.touches[0].clientX) - clientRect.left) * 28 / event.target.offsetWidth;
-      let y =  ((event.clientY || event.touches[0].clientY) - clientRect.top ) * 28 / event.target.offsetHeight;
+      let clientRect = e.target.getBoundingClientRect();
+      let x =  ((e.clientX || e.touches[0].clientX) - clientRect.left) * 28 / e.target.offsetWidth;
+      let y =  ((e.clientY || e.touches[0].clientY) - clientRect.top ) * 28 / e.target.offsetHeight;
       this.lastPosX = this.lastPosX || x;
       this.lastPosY = this.lastPosY || y;
       const canvas = this.$refs['canvas'];
